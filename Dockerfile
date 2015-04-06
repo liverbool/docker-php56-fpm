@@ -1,5 +1,5 @@
-
-FROM        ubuntu:14.10
+FROM        debian:wheezy
+#FROM        ubuntu:14.10
 MAINTAINER  Liverbool "nukboon@gmail.com"
 
 RUN apt-get update
