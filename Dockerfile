@@ -12,7 +12,7 @@ RUN wget http://www.dotdeb.org/dotdeb.gpg -O- |apt-key add -
 RUN apt-get update
 
 # Install PHP5 and modules along with composer binary
-RUN apt-get -y install php5-fpm php5-mysql php5-apc php5-mcrypt php5-curl php5-gd php5-json php5-cli php5-intl
+RUN apt-get -y install php5-fpm php5-mysql php5-apcu php5-mcrypt php5-curl php5-gd php5-json php5-cli php5-intl
 RUN sed -i -e "s/short_open_tag = Off/short_open_tag = On/g" /etc/php5/fpm/php.ini
 RUN sed -i -e "s/post_max_size = 8M/post_max_size = 20M/g" /etc/php5/fpm/php.ini
 RUN sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 20M/g" /etc/php5/fpm/php.ini
