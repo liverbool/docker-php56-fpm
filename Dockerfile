@@ -2,10 +2,10 @@ FROM        debian:wheezy
 #FROM        ubuntu:14.10
 MAINTAINER  Liverbool "nukboon@gmail.com"
 
-RUN apt-get update && apt-get -y install wget && apt-get -y install nano
+RUN apt-get update && apt-get -y install wget
 
-RUN echo "deb http://packages.dotdeb.org wheezy all" >> /etc/apt/sources.list
-RUN echo "deb-src http://packages.dotdeb.org wheezy all" >> /etc/apt/sources.list
+RUN echo "deb http://packages.dotdeb.org wheezy-php56-zts all" >> /etc/apt/sources.list
+RUN echo "deb-src http://packages.dotdeb.org wheezy-php56-zts all" >> /etc/apt/sources.list
 
 RUN wget http://www.dotdeb.org/dotdeb.gpg
 RUN apt-key add dotdeb.gpg
@@ -29,8 +29,8 @@ RUN sed -e 's/;listen\.group/listen.group/' -i /etc/php5/fpm/pool.d/www.conf
 RUN apt-get install -y supervisor
 ADD supervisor/php.conf /etc/supervisor/conf.d/
 
-
 # Internal Port Expose
 EXPOSE 9000
 
+RUN php -v
 CMD ["/usr/bin/supervisord", "-n"]
