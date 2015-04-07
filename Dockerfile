@@ -5,7 +5,7 @@ MAINTAINER  Liverbool "nukboon@gmail.com"
 RUN echo "deb http://packages.dotdeb.org wheezy all" >> /etc/apt/sources.list
 RUN echo "deb-src http://packages.dotdeb.org wheezy all" >> /etc/apt/sources.list
 
-RUN apt-get -y install wget
+RUN apt-get update && apt-get -y install wget
 
 RUN wget http://www.dotdeb.org/dotdeb.gpg
 RUN apt-key -y add dotdeb.gpg
