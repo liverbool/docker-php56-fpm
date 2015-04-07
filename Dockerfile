@@ -2,6 +2,12 @@ FROM        debian:wheezy
 #FROM        ubuntu:14.10
 MAINTAINER  Liverbool "nukboon@gmail.com"
 
+RUN echo "deb http://packages.dotdeb.org wheezy all" >> /etc/apt/sources.list
+RUN echo "deb-src http://packages.dotdeb.org wheezy all" >> /etc/apt/sources.list
+
+RUN wget http://www.dotdeb.org/dotdeb.gpg
+RUN apt-key add dotdeb.gpg -y
+
 RUN apt-get update
 
 # Install PHP5 and modules along with composer binary
