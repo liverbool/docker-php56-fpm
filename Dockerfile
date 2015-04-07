@@ -4,11 +4,10 @@ MAINTAINER  Liverbool "nukboon@gmail.com"
 
 RUN apt-get update && apt-get -y install wget
 
-RUN echo "deb http://packages.dotdeb.org wheezy-php56-zts all" >> /etc/apt/sources.list
-RUN echo "deb-src http://packages.dotdeb.org wheezy-php56-zts all" >> /etc/apt/sources.list
+RUN echo "deb http://packages.dotdeb.org wheezy-php56 all" >> /etc/apt/sources.list
+RUN echo "deb-src http://packages.dotdeb.org wheezy-php56 all" >> /etc/apt/sources.list
 
-RUN wget http://www.dotdeb.org/dotdeb.gpg
-RUN apt-key add dotdeb.gpg
+RUN wget http://www.dotdeb.org/dotdeb.gpg -O- |apt-key add -
 
 RUN apt-get update
 
