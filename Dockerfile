@@ -13,6 +13,12 @@ RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
 RUN echo "max_input_vars = 10000;" >> /etc/php5/fpm/php.ini
 RUN echo "date.timezone = Asia/Bangkok;" >> etc/php5/fpm/php.ini
 
+RUN sed -e 's/;daemonize = yes/daemonize = no/' -i /etc/php5/fpm/php-fpm.conf
+RUN sed -e 's/;listen\.owner/listen.owner/' -i /etc/php5/fpm/pool.d/www.conf
+RUN sed -e 's/;listen\.group/listen.group/' -i /etc/php5/fpm/pool.d/www.conf
+
+Excerpt From: Geoffrey Bachelet. “Discovering Docker.” iBooks. 
+
 # Setup supervisor
 RUN apt-get install -y supervisor
 ADD supervisor/php.conf /etc/supervisor/conf.d/
