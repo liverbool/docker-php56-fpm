@@ -2,13 +2,13 @@ FROM        debian:wheezy
 #FROM        ubuntu:14.10
 MAINTAINER  Liverbool "nukboon@gmail.com"
 
+RUN apt-get update && apt-get -y install wget
+
 RUN echo "deb http://packages.dotdeb.org wheezy all" >> /etc/apt/sources.list
 RUN echo "deb-src http://packages.dotdeb.org wheezy all" >> /etc/apt/sources.list
 
-RUN apt-get update && apt-get -y install wget
-
 RUN wget http://www.dotdeb.org/dotdeb.gpg
-RUN apt-key -y add dotdeb.gpg
+RUN apt-key add dotdeb.gpg
 
 RUN apt-get update
 
